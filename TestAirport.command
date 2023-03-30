@@ -9,10 +9,10 @@ sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Curre
 touch ShutOffTimeLog.txt 
 
 # run every 3 seconds for 24hrs
-for ((i=0; i<8640; i++)); do
+for ((i=0; i<86400; i++)); do
     RESULT=`airport -I | cut -d ':' -f2 | xargs`
     airport -I
-    sleep 3
+    sleep 1
 
     if [ "$RESULT" = 'Off' ]; then
         echo "Turned Off:" $(date) >> /Volumes/Macintosh\ HD/Users/apple/Desktop/ShutOffTimeLog.txt
